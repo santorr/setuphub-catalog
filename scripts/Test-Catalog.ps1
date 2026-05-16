@@ -41,11 +41,16 @@ function Test-RequiredString {
 }
 
 function Get-PackageReferences {
-    param([Parameter(Mandatory = $true)][array]$Catalog)
+    param(
+        [Parameter(Mandatory = $true)][array]$Catalog,
+        [switch]$IncludeVariantParents
+    )
 
     $references = New-Object System.Collections.Generic.List[object]
     foreach ($package in $Catalog) {
-        if ($package.PSObject.Properties.Name -contains "package_id") {
+        $hasVariants = $package.PSObject.Properties.Name -contains "variants" -and $null -ne $package.variants -and @($package.variants).Count -gt 0
+
+        if ($package.PSObject.Properties.Name -contains "package_id" -and ($IncludeVariantParents -or -not $hasVariants)) {
             $references.Add([pscustomobject]@{
                 Name = $package.name
                 Id = $package.package_id
@@ -130,8 +135,9 @@ for ($index = 0; $index -lt $catalog.Count; $index++) {
     }
 }
 
-$packageReferences = @(Get-PackageReferences -Catalog $catalog)
-$duplicateIds = $packageReferences |
+$allPackageReferences = @(Get-PackageReferences -Catalog $catalog -IncludeVariantParents)
+$installablePackageReferences = @(Get-PackageReferences -Catalog $catalog)
+$duplicateIds = $allPackageReferences |
     Where-Object { -not [string]::IsNullOrWhiteSpace($_.Id) } |
     Group-Object -Property Id |
     Where-Object { $_.Count -gt 1 }
@@ -146,9 +152,9 @@ if (-not $SkipWinget) {
     if ($null -eq $wingetCommand) {
         Add-Failure "winget is not available. Install Windows Package Manager or run with -SkipWinget for structure-only validation."
     } else {
-        Write-Output "Checking $($packageReferences.Count) package IDs with winget..."
+        Write-Output "Checking $($installablePackageReferences.Count) installable package IDs with winget..."
 
-        foreach ($reference in $packageReferences) {
+        foreach ($reference in $installablePackageReferences) {
             if ([string]::IsNullOrWhiteSpace($reference.Id)) {
                 continue
             }
@@ -180,4 +186,4 @@ if ($failures.Count -gt 0) {
     exit 1
 }
 
-Write-Output "Catalog validation passed for $($catalog.Count) packages and $($packageReferences.Count) winget IDs."
+Write-Output "Catalog validation passed for $($catalog.Count) packages, $($allPackageReferences.Count) catalog package IDs and $($installablePackageReferences.Count) installable winget IDs."

@@ -1,18 +1,18 @@
 # SetupHub Catalog
 
-Catalogue backend de SetupHub.
+Backend catalog for SetupHub.
 
-Ce depot contient la liste des applications affichees par SetupHub, avec leurs identifiants `winget`, leurs categories, leurs tags et leurs icones. Il est volontairement statique : l'application cliente peut le consommer directement via CDN sans serveur applicatif dedie.
+This repository contains the list of applications displayed by SetupHub, including their `winget` identifiers, categories, tags, descriptions, and icons. It is intentionally static: the client application can consume it directly through a CDN without requiring a dedicated backend service.
 
-## URLs publiques
+## Public URLs
 
-Le catalogue est publie automatiquement par GitHub et peut etre servi par jsDelivr.
+The catalog is published through GitHub and can be served by jsDelivr.
 
-- Catalogue JSON : <https://cdn.jsdelivr.net/gh/santorr/setuphub-catalog@main/packages.json>
-- Exemple d'icone : <https://cdn.jsdelivr.net/gh/santorr/setuphub-catalog@main/icons/chrome.png>
-- Racine jsDelivr : <https://www.jsdelivr.com/github>
+- JSON catalog: <https://cdn.jsdelivr.net/gh/santorr/setuphub-catalog@main/packages.json>
+- Icon example: <https://cdn.jsdelivr.net/gh/santorr/setuphub-catalog@main/icons/chrome.png>
+- jsDelivr GitHub entry point: <https://www.jsdelivr.com/github>
 
-Pour eviter le cache agressif de jsDelivr pendant le developpement, il est possible de remplacer `@main` par une branche, un tag ou un commit precis.
+To avoid aggressive jsDelivr caching during development, replace `@main` with a specific branch, tag, or commit.
 
 ## Structure
 
@@ -29,21 +29,23 @@ setuphub-catalog/
         `-- catalog-check.yml
 ```
 
-## Format du catalogue
+## Catalog Format
 
-`packages.json` est un tableau d'applications. Chaque entree principale doit contenir :
+`packages.json` is an array of applications. Each top-level entry must contain:
 
-| Champ | Type | Description |
+| Field | Type | Description |
 | --- | --- | --- |
-| `name` | string | Nom affiche dans SetupHub. |
-| `package_id` | string | Identifiant exact du package dans `winget`. |
-| `icon` | string | Nom du fichier dans `icons/`. |
-| `category` | string | Categorie fonctionnelle de l'application. |
-| `description` | string | Description courte affichee dans l'interface. |
-| `tags` | string[] | Mots-cles utiles pour la recherche et le filtrage. |
-| `variants` | object[] | Optionnel. Variantes installables avec leur propre `package_id`. |
+| `name` | string | Display name used by SetupHub. |
+| `package_id` | string | Package identifier in `winget`. For entries without `variants`, this identifier must be directly installable. |
+| `icon` | string | File name inside `icons/`. |
+| `category` | string | Functional category for the application. |
+| `description` | string | Short description shown in the UI. |
+| `tags` | string[] | Keywords used for search and filtering. |
+| `variants` | object[] | Optional. Installable variants with their own `package_id`. |
 
-Exemple :
+When an entry contains `variants`, its top-level `package_id` may be used as a catalog grouping identifier. In that case, CI validates the variant `package_id` values because they represent the installable choices shown to the user.
+
+Example:
 
 ```json
 {
@@ -56,7 +58,7 @@ Exemple :
 }
 ```
 
-Exemple avec variantes :
+Example with variants:
 
 ```json
 {
@@ -73,30 +75,30 @@ Exemple avec variantes :
 }
 ```
 
-## Ajouter une application
+## Add an Application
 
-1. Verifier l'identifiant exact avec `winget show --id <Package.Id> --exact`.
-2. Ajouter l'entree dans `packages.json`.
-3. Ajouter l'icone PNG correspondante dans `icons/`.
-4. Lancer la validation locale.
+1. Check the exact identifier with `winget show --id <Package.Id> --exact`.
+2. Add the entry to `packages.json`.
+3. Add the matching PNG icon to `icons/`.
+4. Run the local validation.
 
 ```powershell
 pwsh ./scripts/Test-Catalog.ps1
 ```
 
-Sur Windows PowerShell, la commande equivalente est :
+The equivalent command for Windows PowerShell is:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/Test-Catalog.ps1
 ```
 
-Si `winget` n'est pas disponible sur la machine, la validation structurelle peut quand meme etre lancee :
+If `winget` is not available on the machine, the structure-only validation can still be run:
 
 ```powershell
 pwsh ./scripts/Test-Catalog.ps1 -SkipWinget
 ```
 
-Ou avec Windows PowerShell :
+Or with Windows PowerShell:
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/Test-Catalog.ps1 -SkipWinget
@@ -104,24 +106,24 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/Test-Catalog.ps1 -
 
 ## Validation
 
-Le script `scripts/Test-Catalog.ps1` verifie :
+`scripts/Test-Catalog.ps1` checks that:
 
-- que `packages.json` est un JSON valide ;
-- que chaque entree contient les champs obligatoires ;
-- que chaque icone referencee existe dans `icons/` ;
-- qu'il n'y a pas de doublon dans les `package_id` ;
-- que les variantes ont un `name` et un `package_id` ;
-- que chaque `package_id` est encore resolu par `winget`.
+- `packages.json` is valid JSON;
+- every entry contains the required fields;
+- every referenced icon exists in `icons/`;
+- there are no duplicate `package_id` values;
+- variants contain both `name` and `package_id`;
+- every installable `package_id` can still be resolved by `winget`.
 
-La validation `winget` n'installe rien. Elle utilise `winget show` pour controler que le package existe toujours dans les sources configurees.
+The `winget` validation does not install anything. It uses `winget show` to verify that the package still exists in the configured sources. For entries with variants, the parent entry is not checked with `winget show`; only the variants are checked.
 
 ## CI
 
-Le workflow GitHub Actions `.github/workflows/catalog-check.yml` lance la validation sur `windows-latest` :
+The GitHub Actions workflow `.github/workflows/catalog-check.yml` runs the validation on `windows-latest`:
 
-- a chaque push qui modifie le catalogue, les icones, le script ou le workflow ;
-- a chaque pull request sur ces memes fichiers ;
-- une fois par semaine, pour detecter les packages retires ou renommes dans `winget` ;
-- manuellement via `workflow_dispatch`.
+- on every push that changes the catalog, icons, script, or workflow;
+- on pull requests touching those same files;
+- once a week, to detect packages that were removed or renamed in `winget`;
+- manually through `workflow_dispatch`.
 
-Ce point est utile pour SetupHub : si un identifiant `winget` devient mort, la CI le signale avant que l'application cliente ne propose une installation impossible.
+This helps SetupHub avoid offering broken installers: if a `winget` identifier stops resolving, CI reports it before the client application surfaces a dead install option.
