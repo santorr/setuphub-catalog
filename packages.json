@@ -19,6 +19,13 @@
     { "name": "Python 3.12", "package_id": "Python.Python.3.12" },
     { "name": "Python 3.13", "package_id": "Python.Python.3.13" }
   ] },
+  { "name": "DBeaver", "package_id": "dbeaver.dbeaver", "icon": "dbeaver.png", "category": "Development", "description": "Universal database management tool", "tags": ["Database", "SQL", "Development"], "variants": [
+    { "name": "DBeaver Community", "package_id": "DBeaver.DBeaver.Community" },
+    { "name": "DBeaver Enterprise", "package_id": "DBeaver.DBeaver.Enterprise" },
+    { "name": "DBeaver Lite", "package_id": "DBeaver.DBeaver.Lite" },
+    { "name": "DBeaver Team", "package_id": "DBeaver.DBeaver.Team" },
+    { "name": "DBeaver Ultimate", "package_id": "DBeaver.DBeaver.Ultimate" }
+  ] },
   { "name": "League of Legends", "package_id": "RiotGames.LeagueOfLegends", "icon": "lol.png", "category": "Gaming", "description": "League of Legends game", "tags": ["Gaming"], "variants": [
     { "name": "League of Legends BR", "package_id": "RiotGames.LeagueOfLegends.BR" },
     { "name": "League of Legends EUNE", "package_id": "RiotGames.LeagueOfLegends.EUNE" },
