@@ -88,7 +88,7 @@
   { "name": "qBittorrent", "package_id": "qBittorrent.qBittorrent", "icon": "qbittorrent.png", "category": "Network", "description": "Open-source BitTorrent client", "tags": ["Torrent", "P2P", "Download"] },
   { "name": "WireGuard", "package_id": "WireGuard.WireGuard", "icon": "wireguard.png", "category": "Security", "description": "Modern VPN tunnel", "tags": ["VPN", "Network", "Security"] },
   { "name": "JetBrains Rider", "package_id": "JetBrains.Rider", "icon": "rider.png", "category": "Development", "description": "Cross-platform .NET IDE", "tags": ["IDE", ".NET", "Development"] },
-  { "name": "PyCharm", "package_id": "JetBrains.PyCharm.Community", "icon": "pycharm.png", "category": "Development", "description": "Python IDE for developers", "tags": ["Python", "IDE", "Development"], "variants": [
+  { "name": "PyCharm", "package_id": "JetBrains", "icon": "pycharm.png", "category": "Development", "description": "Python IDE for developers", "tags": ["Python", "IDE", "Development"], "variants": [
     { "name": "PyCharm", "package_id": "JetBrains.PyCharm" },
     { "name": "PyCharm Community", "package_id": "JetBrains.PyCharm.Community" },
     { "name": "PyCharm Professional", "package_id": "JetBrains.PyCharm.Professional" }
