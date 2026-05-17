@@ -88,7 +88,11 @@
   { "name": "qBittorrent", "package_id": "qBittorrent.qBittorrent", "icon": "qbittorrent.png", "category": "Network", "description": "Open-source BitTorrent client", "tags": ["Torrent", "P2P", "Download"] },
   { "name": "WireGuard", "package_id": "WireGuard.WireGuard", "icon": "wireguard.png", "category": "Security", "description": "Modern VPN tunnel", "tags": ["VPN", "Network", "Security"] },
   { "name": "JetBrains Rider", "package_id": "JetBrains.Rider", "icon": "rider.png", "category": "Development", "description": "Cross-platform .NET IDE", "tags": ["IDE", ".NET", "Development"] },
-  { "name": "PyCharm", "package_id": "JetBrains.PyCharm.Community", "icon": "pycharm.png", "category": "Development", "description": "Python IDE for developers", "tags": ["Python", "IDE", "Development"] },
+  { "name": "PyCharm", "package_id": "JetBrains.PyCharm.Community", "icon": "pycharm.png", "category": "Development", "description": "Python IDE for developers", "tags": ["Python", "IDE", "Development"], "variants": [
+    { "name": "PyCharm", "package_id": "JetBrains.PyCharm" },
+    { "name": "PyCharm Community", "package_id": "JetBrains.PyCharm.Community" },
+    { "name": "PyCharm Professional", "package_id": "JetBrains.PyCharm.Professional" }
+  ] },
   { "name": "IntelliJ IDEA", "package_id": "JetBrains.IntelliJIDEA.Community", "icon": "intellij.png", "category": "Development", "description": "Java and JVM IDE", "tags": ["Java", "IDE", "Development"] },
   { "name": "Unity Hub", "package_id": "Unity.UnityHub", "icon": "unity.png", "category": "Creative", "description": "Unity project and editor manager", "tags": ["GameDev", "3D", "Engine"] },
   { "name": "Godot", "package_id": "GodotEngine.GodotEngine", "icon": "godot.png", "category": "Creative", "description": "Open-source game engine", "tags": ["GameDev", "Engine", "2D", "3D"] },
