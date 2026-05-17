@@ -42,29 +42,23 @@ function Test-RequiredString {
 
 function Get-PackageReferences {
     param(
-        [Parameter(Mandatory = $true)][array]$Catalog,
-        [switch]$IncludeVariantParents
+        [Parameter(Mandatory = $true)][array]$Catalog
     )
 
     $references = New-Object System.Collections.Generic.List[object]
     foreach ($package in $Catalog) {
-        $hasVariants = $package.PSObject.Properties.Name -contains "variants" -and $null -ne $package.variants -and @($package.variants).Count -gt 0
-
-        if ($package.PSObject.Properties.Name -contains "package_id" -and ($IncludeVariantParents -or -not $hasVariants)) {
-            $references.Add([pscustomobject]@{
-                Name = $package.name
-                Id = $package.package_id
-                Context = "package '$($package.name)'"
-            }) | Out-Null
-        }
-
-        if ($package.PSObject.Properties.Name -contains "variants" -and $null -ne $package.variants) {
-            foreach ($variant in @($package.variants)) {
-                if ($variant.PSObject.Properties.Name -contains "package_id") {
+        if ($package.PSObject.Properties.Name -contains "installers" -and $null -ne $package.installers) {
+            foreach ($installer in @($package.installers)) {
+                if ($installer.PSObject.Properties.Name -contains "package_id") {
+                    $installerName = if ($installer.PSObject.Properties.Name -contains "name" -and -not [string]::IsNullOrWhiteSpace($installer.name)) {
+                        $installer.name
+                    } else {
+                        $package.name
+                    }
                     $references.Add([pscustomobject]@{
-                        Name = $variant.name
-                        Id = $variant.package_id
-                        Context = "variant '$($variant.name)' of '$($package.name)'"
+                        Name = $installerName
+                        Id = $installer.package_id
+                        Context = "installer '$installerName' of '$($package.name)'"
                     }) | Out-Null
                 }
             }
@@ -101,8 +95,28 @@ for ($index = 0; $index -lt $catalog.Count; $index++) {
     $package = $catalog[$index]
     $context = "package at index $index"
 
-    foreach ($field in @("name", "package_id", "icon", "category", "description")) {
+    foreach ($field in @("name", "icon", "category", "description")) {
         Test-RequiredString -Object $package -PropertyName $field -Context $context
+    }
+
+    $hasInstallers = $package.PSObject.Properties.Name -contains "installers" -and $null -ne $package.installers -and @($package.installers).Count -gt 0
+
+    if ($package.PSObject.Properties.Name -contains "package_id") {
+        Add-Failure "$context must not define root 'package_id'. Use 'installers' instead."
+    }
+
+    if ($package.PSObject.Properties.Name -contains "variants") {
+        Add-Failure "$context must not define 'variants'. Use 'installers' instead."
+    }
+
+    if (-not $hasInstallers) {
+        Add-Failure "$context must define at least one installer."
+    }
+
+    if (-not ($package.PSObject.Properties.Name -contains "id")) {
+        Add-Failure "$context must define stable 'id'."
+    } else {
+        Test-RequiredString -Object $package -PropertyName "id" -Context $context
     }
 
     if (-not ($package.PSObject.Properties.Name -contains "tags")) {
@@ -127,15 +141,25 @@ for ($index = 0; $index -lt $catalog.Count; $index++) {
         }
     }
 
-    if ($package.PSObject.Properties.Name -contains "variants" -and $null -ne $package.variants) {
-        foreach ($variant in @($package.variants)) {
-            Test-RequiredString -Object $variant -PropertyName "name" -Context "variant of '$($package.name)'"
-            Test-RequiredString -Object $variant -PropertyName "package_id" -Context "variant '$($variant.name)' of '$($package.name)'"
+    if ($package.PSObject.Properties.Name -contains "installers" -and $null -ne $package.installers) {
+        $installerCount = @($package.installers).Count
+        foreach ($installer in @($package.installers)) {
+            $installerContext = "installer of '$($package.name)'"
+
+            if ($installerCount -gt 1) {
+                Test-RequiredString -Object $installer -PropertyName "name" -Context $installerContext
+
+                if ($installer.PSObject.Properties.Name -contains "name") {
+                    $installerContext = "installer '$($installer.name)' of '$($package.name)'"
+                }
+            }
+
+            Test-RequiredString -Object $installer -PropertyName "package_id" -Context $installerContext
         }
     }
 }
 
-$allPackageReferences = @(Get-PackageReferences -Catalog $catalog -IncludeVariantParents)
+$allPackageReferences = @(Get-PackageReferences -Catalog $catalog)
 $installablePackageReferences = @(Get-PackageReferences -Catalog $catalog)
 $duplicateIds = $allPackageReferences |
     Where-Object { -not [string]::IsNullOrWhiteSpace($_.Id) } |

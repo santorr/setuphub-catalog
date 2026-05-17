@@ -1,136 +1,1595 @@
-﻿[
-  { "name": "Blender", "package_id": "BlenderFoundation.Blender", "icon": "blender.png", "category": "Creative", "description": "Open-source 3D creation suite", "tags": ["3D", "Modeling", "Rendering", "Animation"] },
-  { "name": "Steam", "package_id": "Valve.Steam", "icon": "steam.png", "category": "Gaming", "description": "PC gaming platform", "tags": ["Games", "Launcher", "Platform"] },
-  { "name": "7zip", "package_id": "7zip.7zip", "icon": "7zip.png", "category": "Utilities", "description": "File archiver with high compression ratio", "tags": ["Compression", "Archive", "Utility"] },
-  { "name": "WizTree", "package_id": "AntibodySoftware.WizTree", "icon": "wiztree.png", "category": "Utilities", "description": "Fast disk space analyzer", "tags": ["Disk", "Storage", "Utility", "Cleanup"] },
-  { "name": "Dropbox", "package_id": "Dropbox.Dropbox", "icon": "dropbox.png", "category": "Cloud", "description": "Cloud storage and file synchronization service", "tags": ["Cloud", "Storage", "Sync", "Backup"] },
-  { "name": "Google Chrome", "package_id": "Google.Chrome.EXE", "icon": "chrome.png", "category": "Web", "description": "Fast and modern web browser", "tags": ["Browser", "Web", "Internet"] },
-  { "name": "Spotify", "package_id": "Spotify.Spotify", "icon": "spotify.png", "category": "Entertainment", "description": "Music streaming platform", "tags": ["Music", "Streaming", "Audio"] },
-  { "name": "Discord", "package_id": "Discord.Discord", "icon": "discord.png", "category": "Communication", "description": "Voice, chat and community platform", "tags": ["Chat", "Voice", "Community", "Gaming"] },
-  { "name": "VLC", "package_id": "VideoLAN.VLC", "icon": "vlc.png", "category": "Media", "description": "Open-source multimedia player", "tags": ["Video", "Audio", "Media", "Player"] },
-  { "name": "Bitwarden", "package_id": "Bitwarden.Bitwarden", "icon": "bitwarden.png", "category": "Security", "description": "Secure password manager", "tags": ["Password", "Security", "Vault", "Authentication"] },
-  { "name": "Visual Studio Code", "package_id": "Microsoft.VisualStudioCode", "icon": "vscode.png", "category": "Development", "description": "Lightweight and extensible code editor", "tags": ["Code", "Editor", "Development"] },
-  { "name": "Git", "package_id": "Git.Git", "icon": "git.png", "category": "Development", "description": "Distributed version control system", "tags": ["Git", "VersionControl", "Development"] },
-  { "name": "Python", "package_id": "Python.Python", "icon": "python.png", "category": "Development", "description": "Powerful programming language", "tags": ["Programming", "Scripting", "Development"], "variants": [
-    { "name": "Python 3.8", "package_id": "Python.Python.3.8" },
-    { "name": "Python 3.9", "package_id": "Python.Python.3.9" },
-    { "name": "Python 3.10", "package_id": "Python.Python.3.10" },
-    { "name": "Python 3.11", "package_id": "Python.Python.3.11" },
-    { "name": "Python 3.12", "package_id": "Python.Python.3.12" },
-    { "name": "Python 3.13", "package_id": "Python.Python.3.13" }
-  ] },
-  { "name": "DBeaver", "package_id": "dbeaver.dbeaver", "icon": "dbeaver.png", "category": "Development", "description": "Universal database management tool", "tags": ["Database", "SQL", "Development"], "variants": [
-    { "name": "DBeaver Community", "package_id": "DBeaver.DBeaver.Community" },
-    { "name": "DBeaver Enterprise", "package_id": "DBeaver.DBeaver.Enterprise" },
-    { "name": "DBeaver Lite", "package_id": "DBeaver.DBeaver.Lite" },
-    { "name": "DBeaver Team", "package_id": "DBeaver.DBeaver.Team" },
-    { "name": "DBeaver Ultimate", "package_id": "DBeaver.DBeaver.Ultimate" }
-  ] },
-  { "name": "Insomnia", "package_id": "Insomnia.Insomnia", "icon": "insomnia.png", "category": "Development", "description": "API client and testing tool", "tags": ["API", "REST", "Development"] },
-  { "name": "League of Legends", "package_id": "RiotGames.LeagueOfLegends", "icon": "lol.png", "category": "Gaming", "description": "League of Legends game", "tags": ["Gaming"], "variants": [
-    { "name": "League of Legends BR", "package_id": "RiotGames.LeagueOfLegends.BR" },
-    { "name": "League of Legends EUNE", "package_id": "RiotGames.LeagueOfLegends.EUNE" },
-    { "name": "League of Legends EUW", "package_id": "RiotGames.LeagueOfLegends.EUW" },
-    { "name": "League of Legends JP", "package_id": "RiotGames.LeagueOfLegends.JP" },
-    { "name": "League of Legends KR", "package_id": "RiotGames.LeagueOfLegends.KR" },
-    { "name": "League of Legends LA1", "package_id": "RiotGames.LeagueOfLegends.LA2" },
-    { "name": "League of Legends NA", "package_id": "RiotGames.LeagueOfLegends.NA" },
-    { "name": "League of Legends OC1", "package_id": "RiotGames.LeagueOfLegends.OC1" },
-    { "name": "League of Legends PBE", "package_id": "RiotGames.LeagueOfLegends.PBE" },
-    { "name": "League of Legends PH2", "package_id": "RiotGames.LeagueOfLegends.PH2" },
-    { "name": "League of Legends RU", "package_id": "RiotGames.LeagueOfLegends.RU" },
-    { "name": "League of Legends SG2", "package_id": "RiotGames.LeagueOfLegends.SG2" },
-    { "name": "League of Legends TH2", "package_id": "RiotGames.LeagueOfLegends.TH2" },
-    { "name": "League of Legends TR", "package_id": "RiotGames.LeagueOfLegends.TR" },
-    { "name": "League of Legends TW2", "package_id": "RiotGames.LeagueOfLegends.TW2" },
-    { "name": "League of Legends VN2", "package_id": "RiotGames.LeagueOfLegends.VN2" }
-  ] },
-  { "name": "Runeterra", "package_id": "RiotGames.LegendsOfRuneterra", "icon": "runeterra.png", "category": "Gaming", "description": "Runeterra game", "tags": ["Gaming"], "variants": [
-    { "name": "Legends Of Runeterra America", "package_id": "RiotGames.LegendsOfRuneterra.Americas" },
-    { "name": "Legends Of Runeterra Asia", "package_id": "RiotGames.LegendsOfRuneterra.Asia" },
-    { "name": "Legends Of Runeterra Europe", "package_id": "RiotGames.LegendsOfRuneterra.Europe" },
-    { "name": "Legends Of Runeterra SEA", "package_id": "RiotGames.LegendsOfRuneterra.SEA" }
-  ] },
-  { "name": "Valorant", "package_id": "RiotGames.Valorant", "icon": "valorant.png", "category": "Gaming", "description": "Valorant game", "tags": ["Gaming"], "variants": [
-    { "name": "Valorant AP", "package_id": "RiotGames.Valorant.AP" },
-    { "name": "Valorant BR", "package_id": "RiotGames.Valorant.BR" },
-    { "name": "Valorant EU", "package_id": "RiotGames.Valorant.EU" },
-    { "name": "Valorant KR", "package_id": "RiotGames.Valorant.KR" },
-    { "name": "Valorant LATAM", "package_id": "RiotGames.Valorant.LATAM" },
-    { "name": "Valorant NA", "package_id": "RiotGames.Valorant.NA" }
-  ] },
-  { "name": "Node.js", "package_id": "OpenJS.NodeJS", "icon": "nodejs.png", "category": "Development", "description": "JavaScript runtime environment", "tags": ["JavaScript", "Backend", "Development"] },
-  { "name": "Notepad++", "package_id": "Notepad++.Notepad++", "icon": "notepadpp.png", "category": "Development", "description": "Source code editor and Notepad replacement", "tags": ["Editor", "Code", "Text"] },
-  { "name": "Docker Desktop", "package_id": "Docker.DockerDesktop", "icon": "docker.png", "category": "Development", "description": "Container development platform", "tags": ["Docker", "Containers", "DevOps"] },
-  { "name": "Postman", "package_id": "Postman.Postman", "icon": "postman.png", "category": "Development", "description": "API platform for developers", "tags": ["API", "Testing", "Development"] },
-  { "name": "PuTTY", "package_id": "PuTTY.PuTTY", "icon": "putty.png", "category": "Network", "description": "SSH and telnet client", "tags": ["SSH", "Terminal", "Network"] },
-  { "name": "OBS Studio", "package_id": "OBSProject.OBSStudio", "icon": "obs.png", "category": "Creative", "description": "Streaming and recording software", "tags": ["Streaming", "Recording", "Video"] },
-  { "name": "GIMP", "package_id": "GIMP.GIMP", "icon": "gimp.png", "category": "Creative", "description": "Open-source image editor", "tags": ["Image", "Editing", "Graphics"] },
-  { "name": "Inkscape", "package_id": "Inkscape.Inkscape", "icon": "inkscape.png", "category": "Creative", "description": "Vector graphics editor", "tags": ["Vector", "Graphics", "Design"] },
-  { "name": "Krita", "package_id": "KDE.Krita", "icon": "krita.png", "category": "Creative", "description": "Digital painting software", "tags": ["Painting", "Drawing", "Art"] },
-  { "name": "Audacity", "package_id": "Audacity.Audacity", "icon": "audacity.png", "category": "Media", "description": "Audio editing software", "tags": ["Audio", "Editing", "Recording"] },
-  { "name": "HandBrake", "package_id": "HandBrake.HandBrake", "icon": "handbrake.png", "category": "Media", "description": "Video transcoder", "tags": ["Video", "Encoding", "Conversion"] },
-  { "name": "Firefox", "package_id": "Mozilla.Firefox", "icon": "firefox.png", "category": "Web", "description": "Privacy-focused web browser", "tags": ["Browser", "Privacy", "Web"] },
-  { "name": "Brave", "package_id": "Brave.Brave", "icon": "brave.png", "category": "Web", "description": "Privacy-focused browser with built-in ad blocking", "tags": ["Browser", "Privacy", "Web"] },
-  { "name": "Opera GX", "package_id": "Opera.OperaGX", "icon": "opera.png", "category": "Web", "description": "Gaming-oriented web browser", "tags": ["Browser", "Gaming", "Web"] },
-  { "name": "Epic Games Launcher", "package_id": "EpicGames.EpicGamesLauncher", "icon": "epicgames.png", "category": "Gaming", "description": "Game launcher and store", "tags": ["Games", "Launcher", "Store"] },
-  { "name": "Battle.net", "package_id": "Blizzard.BattleNet", "icon": "battlenet.png", "category": "Gaming", "description": "Blizzard game launcher", "tags": ["Games", "Launcher", "Blizzard"] },
-  { "name": "Ubisoft Connect", "package_id": "Ubisoft.Connect", "icon": "ubisoftconnect.png", "category": "Gaming", "description": "Ubisoft gaming platform", "tags": ["Games", "Launcher", "Ubisoft"] },
-  { "name": "EA App", "package_id": "ElectronicArts.EADesktop", "icon": "eaapp.png", "category": "Gaming", "description": "Electronic Arts game launcher", "tags": ["Games", "Launcher", "EA"] },
-  { "name": "GOG Galaxy", "package_id": "GOG.Galaxy", "icon": "goggalaxy.png", "category": "Gaming", "description": "Unified gaming launcher", "tags": ["Games", "Launcher", "Library"] },
-  { "name": "TeamViewer", "package_id": "TeamViewer.TeamViewer", "icon": "teamviewer.png", "category": "Remote", "description": "Remote desktop access solution", "tags": ["Remote", "Desktop", "Support"] },
-  { "name": "Telegram", "package_id": "Telegram.TelegramDesktop", "icon": "telegram.png", "category": "Communication", "description": "Cloud-based messaging app", "tags": ["Chat", "Messaging", "Communication"] },
-  { "name": "WinRAR", "package_id": "RARLab.WinRAR", "icon": "winrar.png", "category": "Utilities", "description": "Archive manager utility", "tags": ["Compression", "Archive", "Utility"] },
-  { "name": "Everything", "package_id": "voidtools.Everything", "icon": "everything.png", "category": "Utilities", "description": "Instant file search engine", "tags": ["Search", "Files", "Utility"] },
-  { "name": "ShareX", "package_id": "ShareX.ShareX", "icon": "sharex.png", "category": "Utilities", "description": "Screen capture and productivity tool", "tags": ["Screenshot", "Capture", "Utility"] },
-  { "name": "HWMonitor", "package_id": "CPUID.HWMonitor", "icon": "hwmonitor.png", "category": "Utilities", "description": "Hardware monitoring tool", "tags": ["Hardware", "Monitoring", "Temperature"] },
-  { "name": "CrystalDiskInfo", "package_id": "CrystalDewWorld.CrystalDiskInfo", "icon": "crystaldiskinfo.png", "category": "Utilities", "description": "Disk health monitoring software", "tags": ["Disk", "SMART", "Monitoring"] },
-  { "name": "qBittorrent", "package_id": "qBittorrent.qBittorrent", "icon": "qbittorrent.png", "category": "Network", "description": "Open-source BitTorrent client", "tags": ["Torrent", "P2P", "Download"] },
-  { "name": "WireGuard", "package_id": "WireGuard.WireGuard", "icon": "wireguard.png", "category": "Security", "description": "Modern VPN tunnel", "tags": ["VPN", "Network", "Security"] },
-  { "name": "JetBrains Rider", "package_id": "JetBrains.Rider", "icon": "rider.png", "category": "Development", "description": "Cross-platform .NET IDE", "tags": ["IDE", ".NET", "Development"] },
-  { "name": "PyCharm", "package_id": "JetBrains", "icon": "pycharm.png", "category": "Development", "description": "Python IDE for developers", "tags": ["Python", "IDE", "Development"], "variants": [
-    { "name": "PyCharm", "package_id": "JetBrains.PyCharm" },
-    { "name": "PyCharm Community", "package_id": "JetBrains.PyCharm.Community" },
-    { "name": "PyCharm Professional", "package_id": "JetBrains.PyCharm.Professional" }
-  ] },
-  { "name": "IntelliJ IDEA", "package_id": "JetBrains.IntelliJIDEA.Community", "icon": "intellij.png", "category": "Development", "description": "Java and JVM IDE", "tags": ["Java", "IDE", "Development"] },
-  { "name": "Unity Hub", "package_id": "Unity.UnityHub", "icon": "unity.png", "category": "Creative", "description": "Unity project and editor manager", "tags": ["GameDev", "3D", "Engine"] },
-  { "name": "Godot", "package_id": "GodotEngine.GodotEngine", "icon": "godot.png", "category": "Creative", "description": "Open-source game engine", "tags": ["GameDev", "Engine", "2D", "3D"] },
-  { "name": "Revo Uninstaller", "package_id": "RevoUninstaller.RevoUninstaller", "icon": "revo.png", "category": "Utilities", "description": "Advanced software uninstaller", "tags": ["Uninstall", "Cleanup", "Utility"] },
-  { "name": "GitHub Desktop", "package_id": "GitHub.GitHubDesktop", "icon": "githubdesktop.png", "category": "Development", "description": "GitHub desktop client", "tags": ["Git", "GitHub", "Development"] },
-  { "name": "Visual Studio 2022 Community", "package_id": "Microsoft.VisualStudio.2022.Community", "icon": "visualstudio.png", "category": "Development", "description": "Microsoft IDE for development", "tags": ["IDE", ".NET", "C++"] },
-  { "name": "Android Studio", "package_id": "Google.AndroidStudio", "icon": "androidstudio.png", "category": "Development", "description": "Android development IDE", "tags": ["Android", "IDE", "Mobile"] },
-  { "name": "Slack", "package_id": "SlackTechnologies.Slack", "icon": "slack.png", "category": "Communication", "description": "Team communication platform", "tags": ["Chat", "Team", "Work"] },
-  { "name": "Zoom", "package_id": "Zoom.Zoom", "icon": "zoom.png", "category": "Communication", "description": "Video conferencing platform", "tags": ["Video", "Meeting", "Communication"] },
-  { "name": "Notion", "package_id": "Notion.Notion", "icon": "notion.png", "category": "Productivity", "description": "Workspace and note-taking app", "tags": ["Notes", "Workspace", "Productivity"] },
-  { "name": "Obsidian", "package_id": "Obsidian.Obsidian", "icon": "obsidian.png", "category": "Productivity", "description": "Knowledge base and markdown notes", "tags": ["Markdown", "Notes", "Knowledge"] },
-  { "name": "Minecraft Launcher", "package_id": "Mojang.MinecraftLauncher", "icon": "minecraft.png", "category": "Gaming", "description": "Minecraft launcher", "tags": ["Game", "Launcher", "Minecraft"] },
-  { "name": "Prism Launcher", "package_id": "PrismLauncher.PrismLauncher", "icon": "prismlauncher.png", "category": "Gaming", "description": "Minecraft launcher and mod manager", "tags": ["Minecraft", "Mods", "Launcher"] },
-  { "name": "PowerToys", "package_id": "Microsoft.PowerToys", "icon": "powertoys.png", "category": "Utilities", "description": "Windows productivity utilities", "tags": ["Windows", "Productivity", "Utility"] },
-  { "name": "CPU-Z", "package_id": "CPUID.CPU-Z", "icon": "cpuz.png", "category": "Utilities", "description": "CPU information utility", "tags": ["Hardware", "CPU", "Monitoring"] },
-  { "name": "MSI Afterburner", "package_id": "Guru3D.Afterburner", "icon": "afterburner.png", "category": "Utilities", "description": "GPU overclocking and monitoring tool", "tags": ["GPU", "Monitoring", "Overclocking"] },
-  { "name": "KeePassXC", "package_id": "KeePassXCTeam.KeePassXC", "icon": "keepassxc.png", "category": "Security", "description": "Open-source password manager", "tags": ["Password", "Security", "Vault"] },
-  { "name": "Google Drive", "package_id": "Google.GoogleDrive", "icon": "googledrive.png", "category": "Cloud", "description": "Google cloud storage client", "tags": ["Cloud", "Storage", "Sync"] },
-  { "name": "Microsoft Teams", "package_id": "Microsoft.Teams", "icon": "teams.png", "category": "Communication", "description": "Collaboration and communication platform", "tags": ["Chat", "Meeting", "Work", "Communication"] },
-  { "name": "Signal", "package_id": "OpenWhisperSystems.Signal", "icon": "signal.png", "category": "Communication", "description": "Secure messaging application", "tags": ["Chat", "Privacy", "Messaging", "Security"] },
-  { "name": "Webex", "package_id": "Cisco.Webex", "icon": "webex.png", "category": "Communication", "description": "Video conferencing and collaboration platform", "tags": ["Meeting", "Video", "Work", "Communication"] },
-  { "name": "Sublime Text", "package_id": "SublimeHQ.SublimeText", "icon": "sublimetext.png", "category": "Development", "description": "Fast and lightweight text editor", "tags": ["Editor", "Code", "Development"], "variants": [
-    { "name": "Sublime Text 3", "package_id": "SublimeHQ.SublimeText.3" },
-    { "name": "Sublime Text 4", "package_id": "SublimeHQ.SublimeText.4" }
-  ] },
-  { "name": "OneDrive", "package_id": "Microsoft.OneDrive", "icon": "onedrive.png", "category": "Cloud", "description": "Microsoft cloud storage service", "tags": ["Cloud", "Storage", "Sync", "Microsoft"] },
-  { "name": "MEGA", "package_id": "Mega.MEGASync", "icon": "mega.png", "category": "Cloud", "description": "Encrypted cloud storage service", "tags": ["Cloud", "Storage", "Sync", "Privacy"] },
-  { "name": "Affinity", "package_id": "Canva.Affinity", "icon": "affinity.png", "category": "Creative", "description": "Professional vector graphic design software", "tags": ["Design", "Vector", "Illustration", "Creative"] },
-  { "name": "Amazon Games", "package_id": "Amazon.Games", "icon": "amazongames.png", "category": "Gaming", "description": "Amazon gaming launcher and game platform", "tags": ["Games", "Launcher", "Gaming", "Platform"] },
-  { "name": "Adobe Creative Cloud", "package_id": "Adobe.CreativeCloud", "icon": "creativecloud.png", "category": "Creative", "description": "Adobe creative applications and services platform", "tags": ["Adobe", "Creative", "Design", "Suite"] },
-  { "name": "FFmpeg", "package_id": "Gyan.FFmpeg", "icon": "ffmpeg.png", "category": "Development", "description": "Complete multimedia framework for audio and video processing", "tags": ["Video", "Audio", "Encoding", "CLI"] },
-  { "name": "Arc Browser", "package_id": "TheBrowserCompany.Arc", "icon": "arc.png", "category": "Web", "description": "Modern productivity-focused web browser", "tags": ["Browser", "Web", "Internet", "Productivity"] },
-
-  { "name": "Microsoft Edge", "package_id": "Microsoft.Edge", "icon": "edge.png", "category": "Web", "description": "Modern Microsoft web browser", "tags": ["Browser", "Web", "Internet", "Chromium"] },
-  { "name": "Vivaldi", "package_id": "Vivaldi.Vivaldi", "icon": "vivaldi.png", "category": "Web", "description": "Highly customizable productivity web browser", "tags": ["Browser", "Web", "Customization", "Productivity"] },
-  { "name": "Opera", "package_id": "Opera.Opera", "icon": "opera.png", "category": "Web", "description": "Fast and feature-rich web browser", "tags": ["Browser", "Web", "Internet", "Chromium"] },
-  { "name": "Tor Browser", "package_id": "TorProject.TorBrowser", "icon": "tor.png", "category": "Web", "description": "Privacy-focused anonymous web browser", "tags": ["Browser", "Privacy", "Security", "Tor"] },
-  { "name": "LibreWolf", "package_id": "LibreWolf.LibreWolf", "icon": "librewolf.png", "category": "Web", "description": "Privacy-focused Firefox-based browser", "tags": ["Browser", "Privacy", "Firefox", "OpenSource"] },
-  { "name": "Zen Browser", "package_id": "Zen-Team.Zen-Browser", "icon": "zen.png", "category": "Web", "description": "Modern Firefox-based productivity browser", "tags": ["Browser", "Firefox", "Productivity", "Privacy"] },
-  { "name": "Waterfox", "package_id": "Waterfox.Waterfox", "icon": "waterfox.png", "category": "Web", "description": "Independent Firefox-based web browser", "tags": ["Browser", "Privacy", "Firefox", "OpenSource"] }
+[
+  {
+    "name": "Blender",
+    "icon": "blender.png",
+    "category": "Creative",
+    "description": "Open-source 3D creation suite",
+    "tags": [
+      "3D",
+      "Modeling",
+      "Rendering",
+      "Animation"
+    ],
+    "id": "blender",
+    "installers": [
+      {
+        "package_id": "BlenderFoundation.Blender"
+      }
+    ]
+  },
+  {
+    "name": "Steam",
+    "icon": "steam.png",
+    "category": "Gaming",
+    "description": "PC gaming platform",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Platform"
+    ],
+    "id": "steam",
+    "installers": [
+      {
+        "package_id": "Valve.Steam"
+      }
+    ]
+  },
+  {
+    "name": "7zip",
+    "icon": "7zip.png",
+    "category": "Utilities",
+    "description": "File archiver with high compression ratio",
+    "tags": [
+      "Compression",
+      "Archive",
+      "Utility"
+    ],
+    "id": "7zip",
+    "installers": [
+      {
+        "package_id": "7zip.7zip"
+      }
+    ]
+  },
+  {
+    "name": "WizTree",
+    "icon": "wiztree.png",
+    "category": "Utilities",
+    "description": "Fast disk space analyzer",
+    "tags": [
+      "Disk",
+      "Storage",
+      "Utility",
+      "Cleanup"
+    ],
+    "id": "wiztree",
+    "installers": [
+      {
+        "package_id": "AntibodySoftware.WizTree"
+      }
+    ]
+  },
+  {
+    "name": "Dropbox",
+    "icon": "dropbox.png",
+    "category": "Cloud",
+    "description": "Cloud storage and file synchronization service",
+    "tags": [
+      "Cloud",
+      "Storage",
+      "Sync",
+      "Backup"
+    ],
+    "id": "dropbox",
+    "installers": [
+      {
+        "package_id": "Dropbox.Dropbox"
+      }
+    ]
+  },
+  {
+    "name": "Google Chrome",
+    "icon": "chrome.png",
+    "category": "Web",
+    "description": "Fast and modern web browser",
+    "tags": [
+      "Browser",
+      "Web",
+      "Internet"
+    ],
+    "id": "google-chrome",
+    "installers": [
+      {
+        "package_id": "Google.Chrome.EXE"
+      }
+    ]
+  },
+  {
+    "name": "Spotify",
+    "icon": "spotify.png",
+    "category": "Entertainment",
+    "description": "Music streaming platform",
+    "tags": [
+      "Music",
+      "Streaming",
+      "Audio"
+    ],
+    "id": "spotify",
+    "installers": [
+      {
+        "package_id": "Spotify.Spotify"
+      }
+    ]
+  },
+  {
+    "name": "Discord",
+    "icon": "discord.png",
+    "category": "Communication",
+    "description": "Voice, chat and community platform",
+    "tags": [
+      "Chat",
+      "Voice",
+      "Community",
+      "Gaming"
+    ],
+    "id": "discord",
+    "installers": [
+      {
+        "package_id": "Discord.Discord"
+      }
+    ]
+  },
+  {
+    "name": "VLC",
+    "icon": "vlc.png",
+    "category": "Media",
+    "description": "Open-source multimedia player",
+    "tags": [
+      "Video",
+      "Audio",
+      "Media",
+      "Player"
+    ],
+    "id": "vlc",
+    "installers": [
+      {
+        "package_id": "VideoLAN.VLC"
+      }
+    ]
+  },
+  {
+    "name": "Bitwarden",
+    "icon": "bitwarden.png",
+    "category": "Security",
+    "description": "Secure password manager",
+    "tags": [
+      "Password",
+      "Security",
+      "Vault",
+      "Authentication"
+    ],
+    "id": "bitwarden",
+    "installers": [
+      {
+        "package_id": "Bitwarden.Bitwarden"
+      }
+    ]
+  },
+  {
+    "name": "Visual Studio Code",
+    "icon": "vscode.png",
+    "category": "Development",
+    "description": "Lightweight and extensible code editor",
+    "tags": [
+      "Code",
+      "Editor",
+      "Development"
+    ],
+    "id": "visual-studio-code",
+    "installers": [
+      {
+        "package_id": "Microsoft.VisualStudioCode"
+      }
+    ]
+  },
+  {
+    "name": "Git",
+    "icon": "git.png",
+    "category": "Development",
+    "description": "Distributed version control system",
+    "tags": [
+      "Git",
+      "VersionControl",
+      "Development"
+    ],
+    "id": "git",
+    "installers": [
+      {
+        "package_id": "Git.Git"
+      }
+    ]
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "icon": "python.png",
+    "category": "Development",
+    "description": "Powerful programming language",
+    "tags": [
+      "Programming",
+      "Scripting",
+      "Development"
+    ],
+    "installers": [
+      {
+        "name": "Python 3.8",
+        "package_id": "Python.Python.3.8"
+      },
+      {
+        "name": "Python 3.9",
+        "package_id": "Python.Python.3.9"
+      },
+      {
+        "name": "Python 3.10",
+        "package_id": "Python.Python.3.10"
+      },
+      {
+        "name": "Python 3.11",
+        "package_id": "Python.Python.3.11"
+      },
+      {
+        "name": "Python 3.12",
+        "package_id": "Python.Python.3.12"
+      },
+      {
+        "name": "Python 3.13",
+        "package_id": "Python.Python.3.13"
+      }
+    ]
+  },
+  {
+    "id": "dbeaver",
+    "name": "DBeaver",
+    "icon": "dbeaver.png",
+    "category": "Development",
+    "description": "Universal database management tool",
+    "tags": [
+      "Database",
+      "SQL",
+      "Development"
+    ],
+    "installers": [
+      {
+        "name": "DBeaver Community",
+        "package_id": "DBeaver.DBeaver.Community"
+      },
+      {
+        "name": "DBeaver Enterprise",
+        "package_id": "DBeaver.DBeaver.Enterprise"
+      },
+      {
+        "name": "DBeaver Lite",
+        "package_id": "DBeaver.DBeaver.Lite"
+      },
+      {
+        "name": "DBeaver Team",
+        "package_id": "DBeaver.DBeaver.Team"
+      },
+      {
+        "name": "DBeaver Ultimate",
+        "package_id": "DBeaver.DBeaver.Ultimate"
+      }
+    ]
+  },
+  {
+    "name": "Insomnia",
+    "icon": "insomnia.png",
+    "category": "Development",
+    "description": "API client and testing tool",
+    "tags": [
+      "API",
+      "REST",
+      "Development"
+    ],
+    "id": "insomnia",
+    "installers": [
+      {
+        "package_id": "Insomnia.Insomnia"
+      }
+    ]
+  },
+  {
+    "id": "league-of-legends",
+    "name": "League of Legends",
+    "icon": "lol.png",
+    "category": "Gaming",
+    "description": "League of Legends game",
+    "tags": [
+      "Gaming"
+    ],
+    "installers": [
+      {
+        "name": "League of Legends BR",
+        "package_id": "RiotGames.LeagueOfLegends.BR"
+      },
+      {
+        "name": "League of Legends EUNE",
+        "package_id": "RiotGames.LeagueOfLegends.EUNE"
+      },
+      {
+        "name": "League of Legends EUW",
+        "package_id": "RiotGames.LeagueOfLegends.EUW"
+      },
+      {
+        "name": "League of Legends JP",
+        "package_id": "RiotGames.LeagueOfLegends.JP"
+      },
+      {
+        "name": "League of Legends KR",
+        "package_id": "RiotGames.LeagueOfLegends.KR"
+      },
+      {
+        "name": "League of Legends LA1",
+        "package_id": "RiotGames.LeagueOfLegends.LA2"
+      },
+      {
+        "name": "League of Legends NA",
+        "package_id": "RiotGames.LeagueOfLegends.NA"
+      },
+      {
+        "name": "League of Legends OC1",
+        "package_id": "RiotGames.LeagueOfLegends.OC1"
+      },
+      {
+        "name": "League of Legends PBE",
+        "package_id": "RiotGames.LeagueOfLegends.PBE"
+      },
+      {
+        "name": "League of Legends PH2",
+        "package_id": "RiotGames.LeagueOfLegends.PH2"
+      },
+      {
+        "name": "League of Legends RU",
+        "package_id": "RiotGames.LeagueOfLegends.RU"
+      },
+      {
+        "name": "League of Legends SG2",
+        "package_id": "RiotGames.LeagueOfLegends.SG2"
+      },
+      {
+        "name": "League of Legends TH2",
+        "package_id": "RiotGames.LeagueOfLegends.TH2"
+      },
+      {
+        "name": "League of Legends TR",
+        "package_id": "RiotGames.LeagueOfLegends.TR"
+      },
+      {
+        "name": "League of Legends TW2",
+        "package_id": "RiotGames.LeagueOfLegends.TW2"
+      },
+      {
+        "name": "League of Legends VN2",
+        "package_id": "RiotGames.LeagueOfLegends.VN2"
+      }
+    ]
+  },
+  {
+    "id": "runeterra",
+    "name": "Runeterra",
+    "icon": "runeterra.png",
+    "category": "Gaming",
+    "description": "Runeterra game",
+    "tags": [
+      "Gaming"
+    ],
+    "installers": [
+      {
+        "name": "Legends Of Runeterra America",
+        "package_id": "RiotGames.LegendsOfRuneterra.Americas"
+      },
+      {
+        "name": "Legends Of Runeterra Asia",
+        "package_id": "RiotGames.LegendsOfRuneterra.Asia"
+      },
+      {
+        "name": "Legends Of Runeterra Europe",
+        "package_id": "RiotGames.LegendsOfRuneterra.Europe"
+      },
+      {
+        "name": "Legends Of Runeterra SEA",
+        "package_id": "RiotGames.LegendsOfRuneterra.SEA"
+      }
+    ]
+  },
+  {
+    "id": "valorant",
+    "name": "Valorant",
+    "icon": "valorant.png",
+    "category": "Gaming",
+    "description": "Valorant game",
+    "tags": [
+      "Gaming"
+    ],
+    "installers": [
+      {
+        "name": "Valorant AP",
+        "package_id": "RiotGames.Valorant.AP"
+      },
+      {
+        "name": "Valorant BR",
+        "package_id": "RiotGames.Valorant.BR"
+      },
+      {
+        "name": "Valorant EU",
+        "package_id": "RiotGames.Valorant.EU"
+      },
+      {
+        "name": "Valorant KR",
+        "package_id": "RiotGames.Valorant.KR"
+      },
+      {
+        "name": "Valorant LATAM",
+        "package_id": "RiotGames.Valorant.LATAM"
+      },
+      {
+        "name": "Valorant NA",
+        "package_id": "RiotGames.Valorant.NA"
+      }
+    ]
+  },
+  {
+    "name": "Node.js",
+    "icon": "nodejs.png",
+    "category": "Development",
+    "description": "JavaScript runtime environment",
+    "tags": [
+      "JavaScript",
+      "Backend",
+      "Development"
+    ],
+    "id": "node-js",
+    "installers": [
+      {
+        "package_id": "OpenJS.NodeJS"
+      }
+    ]
+  },
+  {
+    "name": "Notepad++",
+    "icon": "notepadpp.png",
+    "category": "Development",
+    "description": "Source code editor and Notepad replacement",
+    "tags": [
+      "Editor",
+      "Code",
+      "Text"
+    ],
+    "id": "notepad",
+    "installers": [
+      {
+        "package_id": "Notepad++.Notepad++"
+      }
+    ]
+  },
+  {
+    "name": "Docker Desktop",
+    "icon": "docker.png",
+    "category": "Development",
+    "description": "Container development platform",
+    "tags": [
+      "Docker",
+      "Containers",
+      "DevOps"
+    ],
+    "id": "docker-desktop",
+    "installers": [
+      {
+        "package_id": "Docker.DockerDesktop"
+      }
+    ]
+  },
+  {
+    "name": "Postman",
+    "icon": "postman.png",
+    "category": "Development",
+    "description": "API platform for developers",
+    "tags": [
+      "API",
+      "Testing",
+      "Development"
+    ],
+    "id": "postman",
+    "installers": [
+      {
+        "package_id": "Postman.Postman"
+      }
+    ]
+  },
+  {
+    "name": "PuTTY",
+    "icon": "putty.png",
+    "category": "Network",
+    "description": "SSH and telnet client",
+    "tags": [
+      "SSH",
+      "Terminal",
+      "Network"
+    ],
+    "id": "putty",
+    "installers": [
+      {
+        "package_id": "PuTTY.PuTTY"
+      }
+    ]
+  },
+  {
+    "name": "OBS Studio",
+    "icon": "obs.png",
+    "category": "Creative",
+    "description": "Streaming and recording software",
+    "tags": [
+      "Streaming",
+      "Recording",
+      "Video"
+    ],
+    "id": "obs-studio",
+    "installers": [
+      {
+        "package_id": "OBSProject.OBSStudio"
+      }
+    ]
+  },
+  {
+    "name": "GIMP",
+    "icon": "gimp.png",
+    "category": "Creative",
+    "description": "Open-source image editor",
+    "tags": [
+      "Image",
+      "Editing",
+      "Graphics"
+    ],
+    "id": "gimp",
+    "installers": [
+      {
+        "package_id": "GIMP.GIMP"
+      }
+    ]
+  },
+  {
+    "name": "Inkscape",
+    "icon": "inkscape.png",
+    "category": "Creative",
+    "description": "Vector graphics editor",
+    "tags": [
+      "Vector",
+      "Graphics",
+      "Design"
+    ],
+    "id": "inkscape",
+    "installers": [
+      {
+        "package_id": "Inkscape.Inkscape"
+      }
+    ]
+  },
+  {
+    "name": "Krita",
+    "icon": "krita.png",
+    "category": "Creative",
+    "description": "Digital painting software",
+    "tags": [
+      "Painting",
+      "Drawing",
+      "Art"
+    ],
+    "id": "krita",
+    "installers": [
+      {
+        "package_id": "KDE.Krita"
+      }
+    ]
+  },
+  {
+    "name": "Audacity",
+    "icon": "audacity.png",
+    "category": "Media",
+    "description": "Audio editing software",
+    "tags": [
+      "Audio",
+      "Editing",
+      "Recording"
+    ],
+    "id": "audacity",
+    "installers": [
+      {
+        "package_id": "Audacity.Audacity"
+      }
+    ]
+  },
+  {
+    "name": "HandBrake",
+    "icon": "handbrake.png",
+    "category": "Media",
+    "description": "Video transcoder",
+    "tags": [
+      "Video",
+      "Encoding",
+      "Conversion"
+    ],
+    "id": "handbrake",
+    "installers": [
+      {
+        "package_id": "HandBrake.HandBrake"
+      }
+    ]
+  },
+  {
+    "name": "Firefox",
+    "icon": "firefox.png",
+    "category": "Web",
+    "description": "Privacy-focused web browser",
+    "tags": [
+      "Browser",
+      "Privacy",
+      "Web"
+    ],
+    "id": "firefox",
+    "installers": [
+      {
+        "package_id": "Mozilla.Firefox"
+      }
+    ]
+  },
+  {
+    "name": "Brave",
+    "icon": "brave.png",
+    "category": "Web",
+    "description": "Privacy-focused browser with built-in ad blocking",
+    "tags": [
+      "Browser",
+      "Privacy",
+      "Web"
+    ],
+    "id": "brave",
+    "installers": [
+      {
+        "package_id": "Brave.Brave"
+      }
+    ]
+  },
+  {
+    "name": "Opera GX",
+    "icon": "opera.png",
+    "category": "Web",
+    "description": "Gaming-oriented web browser",
+    "tags": [
+      "Browser",
+      "Gaming",
+      "Web"
+    ],
+    "id": "opera-gx",
+    "installers": [
+      {
+        "package_id": "Opera.OperaGX"
+      }
+    ]
+  },
+  {
+    "name": "Epic Games Launcher",
+    "icon": "epicgames.png",
+    "category": "Gaming",
+    "description": "Game launcher and store",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Store"
+    ],
+    "id": "epic-games-launcher",
+    "installers": [
+      {
+        "package_id": "EpicGames.EpicGamesLauncher"
+      }
+    ]
+  },
+  {
+    "name": "Battle.net",
+    "icon": "battlenet.png",
+    "category": "Gaming",
+    "description": "Blizzard game launcher",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Blizzard"
+    ],
+    "id": "battle-net",
+    "installers": [
+      {
+        "package_id": "Blizzard.BattleNet"
+      }
+    ]
+  },
+  {
+    "name": "Ubisoft Connect",
+    "icon": "ubisoftconnect.png",
+    "category": "Gaming",
+    "description": "Ubisoft gaming platform",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Ubisoft"
+    ],
+    "id": "ubisoft-connect",
+    "installers": [
+      {
+        "package_id": "Ubisoft.Connect"
+      }
+    ]
+  },
+  {
+    "name": "EA App",
+    "icon": "eaapp.png",
+    "category": "Gaming",
+    "description": "Electronic Arts game launcher",
+    "tags": [
+      "Games",
+      "Launcher",
+      "EA"
+    ],
+    "id": "ea-app",
+    "installers": [
+      {
+        "package_id": "ElectronicArts.EADesktop"
+      }
+    ]
+  },
+  {
+    "name": "GOG Galaxy",
+    "icon": "goggalaxy.png",
+    "category": "Gaming",
+    "description": "Unified gaming launcher",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Library"
+    ],
+    "id": "gog-galaxy",
+    "installers": [
+      {
+        "package_id": "GOG.Galaxy"
+      }
+    ]
+  },
+  {
+    "name": "TeamViewer",
+    "icon": "teamviewer.png",
+    "category": "Remote",
+    "description": "Remote desktop access solution",
+    "tags": [
+      "Remote",
+      "Desktop",
+      "Support"
+    ],
+    "id": "teamviewer",
+    "installers": [
+      {
+        "package_id": "TeamViewer.TeamViewer"
+      }
+    ]
+  },
+  {
+    "name": "Telegram",
+    "icon": "telegram.png",
+    "category": "Communication",
+    "description": "Cloud-based messaging app",
+    "tags": [
+      "Chat",
+      "Messaging",
+      "Communication"
+    ],
+    "id": "telegram",
+    "installers": [
+      {
+        "package_id": "Telegram.TelegramDesktop"
+      }
+    ]
+  },
+  {
+    "name": "WinRAR",
+    "icon": "winrar.png",
+    "category": "Utilities",
+    "description": "Archive manager utility",
+    "tags": [
+      "Compression",
+      "Archive",
+      "Utility"
+    ],
+    "id": "winrar",
+    "installers": [
+      {
+        "package_id": "RARLab.WinRAR"
+      }
+    ]
+  },
+  {
+    "name": "Everything",
+    "icon": "everything.png",
+    "category": "Utilities",
+    "description": "Instant file search engine",
+    "tags": [
+      "Search",
+      "Files",
+      "Utility"
+    ],
+    "id": "everything",
+    "installers": [
+      {
+        "package_id": "voidtools.Everything"
+      }
+    ]
+  },
+  {
+    "name": "ShareX",
+    "icon": "sharex.png",
+    "category": "Utilities",
+    "description": "Screen capture and productivity tool",
+    "tags": [
+      "Screenshot",
+      "Capture",
+      "Utility"
+    ],
+    "id": "sharex",
+    "installers": [
+      {
+        "package_id": "ShareX.ShareX"
+      }
+    ]
+  },
+  {
+    "name": "HWMonitor",
+    "icon": "hwmonitor.png",
+    "category": "Utilities",
+    "description": "Hardware monitoring tool",
+    "tags": [
+      "Hardware",
+      "Monitoring",
+      "Temperature"
+    ],
+    "id": "hwmonitor",
+    "installers": [
+      {
+        "package_id": "CPUID.HWMonitor"
+      }
+    ]
+  },
+  {
+    "name": "CrystalDiskInfo",
+    "icon": "crystaldiskinfo.png",
+    "category": "Utilities",
+    "description": "Disk health monitoring software",
+    "tags": [
+      "Disk",
+      "SMART",
+      "Monitoring"
+    ],
+    "id": "crystaldiskinfo",
+    "installers": [
+      {
+        "package_id": "CrystalDewWorld.CrystalDiskInfo"
+      }
+    ]
+  },
+  {
+    "name": "qBittorrent",
+    "icon": "qbittorrent.png",
+    "category": "Network",
+    "description": "Open-source BitTorrent client",
+    "tags": [
+      "Torrent",
+      "P2P",
+      "Download"
+    ],
+    "id": "qbittorrent",
+    "installers": [
+      {
+        "package_id": "qBittorrent.qBittorrent"
+      }
+    ]
+  },
+  {
+    "name": "WireGuard",
+    "icon": "wireguard.png",
+    "category": "Security",
+    "description": "Modern VPN tunnel",
+    "tags": [
+      "VPN",
+      "Network",
+      "Security"
+    ],
+    "id": "wireguard",
+    "installers": [
+      {
+        "package_id": "WireGuard.WireGuard"
+      }
+    ]
+  },
+  {
+    "name": "JetBrains Rider",
+    "icon": "rider.png",
+    "category": "Development",
+    "description": "Cross-platform .NET IDE",
+    "tags": [
+      "IDE",
+      ".NET",
+      "Development"
+    ],
+    "id": "jetbrains-rider",
+    "installers": [
+      {
+        "package_id": "JetBrains.Rider"
+      }
+    ]
+  },
+  {
+    "id": "pycharm",
+    "name": "PyCharm",
+    "icon": "pycharm.png",
+    "category": "Development",
+    "description": "Python IDE for developers",
+    "tags": [
+      "Python",
+      "IDE",
+      "Development"
+    ],
+    "installers": [
+      {
+        "package_id": "JetBrains.PyCharm",
+        "name": "PyCharm"
+      },
+      {
+        "name": "PyCharm Community",
+        "package_id": "JetBrains.PyCharm.Community"
+      },
+      {
+        "name": "PyCharm Professional",
+        "package_id": "JetBrains.PyCharm.Professional"
+      }
+    ]
+  },
+  {
+    "name": "IntelliJ IDEA",
+    "icon": "intellij.png",
+    "category": "Development",
+    "description": "Java and JVM IDE",
+    "tags": [
+      "Java",
+      "IDE",
+      "Development"
+    ],
+    "id": "intellij-idea",
+    "installers": [
+      {
+        "package_id": "JetBrains.IntelliJIDEA.Community"
+      }
+    ]
+  },
+  {
+    "name": "Unity Hub",
+    "icon": "unity.png",
+    "category": "Creative",
+    "description": "Unity project and editor manager",
+    "tags": [
+      "GameDev",
+      "3D",
+      "Engine"
+    ],
+    "id": "unity-hub",
+    "installers": [
+      {
+        "package_id": "Unity.UnityHub"
+      }
+    ]
+  },
+  {
+    "name": "Godot",
+    "icon": "godot.png",
+    "category": "Creative",
+    "description": "Open-source game engine",
+    "tags": [
+      "GameDev",
+      "Engine",
+      "2D",
+      "3D"
+    ],
+    "id": "godot",
+    "installers": [
+      {
+        "package_id": "GodotEngine.GodotEngine"
+      }
+    ]
+  },
+  {
+    "name": "Revo Uninstaller",
+    "icon": "revo.png",
+    "category": "Utilities",
+    "description": "Advanced software uninstaller",
+    "tags": [
+      "Uninstall",
+      "Cleanup",
+      "Utility"
+    ],
+    "id": "revo-uninstaller",
+    "installers": [
+      {
+        "package_id": "RevoUninstaller.RevoUninstaller"
+      }
+    ]
+  },
+  {
+    "name": "GitHub Desktop",
+    "icon": "githubdesktop.png",
+    "category": "Development",
+    "description": "GitHub desktop client",
+    "tags": [
+      "Git",
+      "GitHub",
+      "Development"
+    ],
+    "id": "github-desktop",
+    "installers": [
+      {
+        "package_id": "GitHub.GitHubDesktop"
+      }
+    ]
+  },
+  {
+    "name": "Visual Studio 2022 Community",
+    "icon": "visualstudio.png",
+    "category": "Development",
+    "description": "Microsoft IDE for development",
+    "tags": [
+      "IDE",
+      ".NET",
+      "C++"
+    ],
+    "id": "visual-studio-2022-community",
+    "installers": [
+      {
+        "package_id": "Microsoft.VisualStudio.2022.Community"
+      }
+    ]
+  },
+  {
+    "name": "Android Studio",
+    "icon": "androidstudio.png",
+    "category": "Development",
+    "description": "Android development IDE",
+    "tags": [
+      "Android",
+      "IDE",
+      "Mobile"
+    ],
+    "id": "android-studio",
+    "installers": [
+      {
+        "package_id": "Google.AndroidStudio"
+      }
+    ]
+  },
+  {
+    "name": "Slack",
+    "icon": "slack.png",
+    "category": "Communication",
+    "description": "Team communication platform",
+    "tags": [
+      "Chat",
+      "Team",
+      "Work"
+    ],
+    "id": "slack",
+    "installers": [
+      {
+        "package_id": "SlackTechnologies.Slack"
+      }
+    ]
+  },
+  {
+    "name": "Zoom",
+    "icon": "zoom.png",
+    "category": "Communication",
+    "description": "Video conferencing platform",
+    "tags": [
+      "Video",
+      "Meeting",
+      "Communication"
+    ],
+    "id": "zoom",
+    "installers": [
+      {
+        "package_id": "Zoom.Zoom"
+      }
+    ]
+  },
+  {
+    "name": "Notion",
+    "icon": "notion.png",
+    "category": "Productivity",
+    "description": "Workspace and note-taking app",
+    "tags": [
+      "Notes",
+      "Workspace",
+      "Productivity"
+    ],
+    "id": "notion",
+    "installers": [
+      {
+        "package_id": "Notion.Notion"
+      }
+    ]
+  },
+  {
+    "name": "Obsidian",
+    "icon": "obsidian.png",
+    "category": "Productivity",
+    "description": "Knowledge base and markdown notes",
+    "tags": [
+      "Markdown",
+      "Notes",
+      "Knowledge"
+    ],
+    "id": "obsidian",
+    "installers": [
+      {
+        "package_id": "Obsidian.Obsidian"
+      }
+    ]
+  },
+  {
+    "name": "Minecraft Launcher",
+    "icon": "minecraft.png",
+    "category": "Gaming",
+    "description": "Minecraft launcher",
+    "tags": [
+      "Game",
+      "Launcher",
+      "Minecraft"
+    ],
+    "id": "minecraft-launcher",
+    "installers": [
+      {
+        "package_id": "Mojang.MinecraftLauncher"
+      }
+    ]
+  },
+  {
+    "name": "Prism Launcher",
+    "icon": "prismlauncher.png",
+    "category": "Gaming",
+    "description": "Minecraft launcher and mod manager",
+    "tags": [
+      "Minecraft",
+      "Mods",
+      "Launcher"
+    ],
+    "id": "prism-launcher",
+    "installers": [
+      {
+        "package_id": "PrismLauncher.PrismLauncher"
+      }
+    ]
+  },
+  {
+    "name": "PowerToys",
+    "icon": "powertoys.png",
+    "category": "Utilities",
+    "description": "Windows productivity utilities",
+    "tags": [
+      "Windows",
+      "Productivity",
+      "Utility"
+    ],
+    "id": "powertoys",
+    "installers": [
+      {
+        "package_id": "Microsoft.PowerToys"
+      }
+    ]
+  },
+  {
+    "name": "CPU-Z",
+    "icon": "cpuz.png",
+    "category": "Utilities",
+    "description": "CPU information utility",
+    "tags": [
+      "Hardware",
+      "CPU",
+      "Monitoring"
+    ],
+    "id": "cpu-z",
+    "installers": [
+      {
+        "package_id": "CPUID.CPU-Z"
+      }
+    ]
+  },
+  {
+    "name": "MSI Afterburner",
+    "icon": "afterburner.png",
+    "category": "Utilities",
+    "description": "GPU overclocking and monitoring tool",
+    "tags": [
+      "GPU",
+      "Monitoring",
+      "Overclocking"
+    ],
+    "id": "msi-afterburner",
+    "installers": [
+      {
+        "package_id": "Guru3D.Afterburner"
+      }
+    ]
+  },
+  {
+    "name": "KeePassXC",
+    "icon": "keepassxc.png",
+    "category": "Security",
+    "description": "Open-source password manager",
+    "tags": [
+      "Password",
+      "Security",
+      "Vault"
+    ],
+    "id": "keepassxc",
+    "installers": [
+      {
+        "package_id": "KeePassXCTeam.KeePassXC"
+      }
+    ]
+  },
+  {
+    "name": "Google Drive",
+    "icon": "googledrive.png",
+    "category": "Cloud",
+    "description": "Google cloud storage client",
+    "tags": [
+      "Cloud",
+      "Storage",
+      "Sync"
+    ],
+    "id": "google-drive",
+    "installers": [
+      {
+        "package_id": "Google.GoogleDrive"
+      }
+    ]
+  },
+  {
+    "name": "Microsoft Teams",
+    "icon": "teams.png",
+    "category": "Communication",
+    "description": "Collaboration and communication platform",
+    "tags": [
+      "Chat",
+      "Meeting",
+      "Work",
+      "Communication"
+    ],
+    "id": "microsoft-teams",
+    "installers": [
+      {
+        "package_id": "Microsoft.Teams"
+      }
+    ]
+  },
+  {
+    "name": "Signal",
+    "icon": "signal.png",
+    "category": "Communication",
+    "description": "Secure messaging application",
+    "tags": [
+      "Chat",
+      "Privacy",
+      "Messaging",
+      "Security"
+    ],
+    "id": "signal",
+    "installers": [
+      {
+        "package_id": "OpenWhisperSystems.Signal"
+      }
+    ]
+  },
+  {
+    "name": "Webex",
+    "icon": "webex.png",
+    "category": "Communication",
+    "description": "Video conferencing and collaboration platform",
+    "tags": [
+      "Meeting",
+      "Video",
+      "Work",
+      "Communication"
+    ],
+    "id": "webex",
+    "installers": [
+      {
+        "package_id": "Cisco.Webex"
+      }
+    ]
+  },
+  {
+    "id": "sublime-text",
+    "name": "Sublime Text",
+    "icon": "sublimetext.png",
+    "category": "Development",
+    "description": "Fast and lightweight text editor",
+    "tags": [
+      "Editor",
+      "Code",
+      "Development"
+    ],
+    "installers": [
+      {
+        "name": "Sublime Text 3",
+        "package_id": "SublimeHQ.SublimeText.3"
+      },
+      {
+        "name": "Sublime Text 4",
+        "package_id": "SublimeHQ.SublimeText.4"
+      }
+    ]
+  },
+  {
+    "name": "OneDrive",
+    "icon": "onedrive.png",
+    "category": "Cloud",
+    "description": "Microsoft cloud storage service",
+    "tags": [
+      "Cloud",
+      "Storage",
+      "Sync",
+      "Microsoft"
+    ],
+    "id": "onedrive",
+    "installers": [
+      {
+        "package_id": "Microsoft.OneDrive"
+      }
+    ]
+  },
+  {
+    "name": "MEGA",
+    "icon": "mega.png",
+    "category": "Cloud",
+    "description": "Encrypted cloud storage service",
+    "tags": [
+      "Cloud",
+      "Storage",
+      "Sync",
+      "Privacy"
+    ],
+    "id": "mega",
+    "installers": [
+      {
+        "package_id": "Mega.MEGASync"
+      }
+    ]
+  },
+  {
+    "name": "Affinity",
+    "icon": "affinity.png",
+    "category": "Creative",
+    "description": "Professional vector graphic design software",
+    "tags": [
+      "Design",
+      "Vector",
+      "Illustration",
+      "Creative"
+    ],
+    "id": "affinity",
+    "installers": [
+      {
+        "package_id": "Canva.Affinity"
+      }
+    ]
+  },
+  {
+    "name": "Amazon Games",
+    "icon": "amazongames.png",
+    "category": "Gaming",
+    "description": "Amazon gaming launcher and game platform",
+    "tags": [
+      "Games",
+      "Launcher",
+      "Gaming",
+      "Platform"
+    ],
+    "id": "amazon-games",
+    "installers": [
+      {
+        "package_id": "Amazon.Games"
+      }
+    ]
+  },
+  {
+    "name": "Adobe Creative Cloud",
+    "icon": "creativecloud.png",
+    "category": "Creative",
+    "description": "Adobe creative applications and services platform",
+    "tags": [
+      "Adobe",
+      "Creative",
+      "Design",
+      "Suite"
+    ],
+    "id": "adobe-creative-cloud",
+    "installers": [
+      {
+        "package_id": "Adobe.CreativeCloud"
+      }
+    ]
+  },
+  {
+    "name": "FFmpeg",
+    "icon": "ffmpeg.png",
+    "category": "Development",
+    "description": "Complete multimedia framework for audio and video processing",
+    "tags": [
+      "Video",
+      "Audio",
+      "Encoding",
+      "CLI"
+    ],
+    "id": "ffmpeg",
+    "installers": [
+      {
+        "package_id": "Gyan.FFmpeg"
+      }
+    ]
+  },
+  {
+    "name": "Arc Browser",
+    "icon": "arc.png",
+    "category": "Web",
+    "description": "Modern productivity-focused web browser",
+    "tags": [
+      "Browser",
+      "Web",
+      "Internet",
+      "Productivity"
+    ],
+    "id": "arc-browser",
+    "installers": [
+      {
+        "package_id": "TheBrowserCompany.Arc"
+      }
+    ]
+  },
+  {
+    "name": "Microsoft Edge",
+    "icon": "edge.png",
+    "category": "Web",
+    "description": "Modern Microsoft web browser",
+    "tags": [
+      "Browser",
+      "Web",
+      "Internet",
+      "Chromium"
+    ],
+    "id": "microsoft-edge",
+    "installers": [
+      {
+        "package_id": "Microsoft.Edge"
+      }
+    ]
+  },
+  {
+    "name": "Vivaldi",
+    "icon": "vivaldi.png",
+    "category": "Web",
+    "description": "Highly customizable productivity web browser",
+    "tags": [
+      "Browser",
+      "Web",
+      "Customization",
+      "Productivity"
+    ],
+    "id": "vivaldi",
+    "installers": [
+      {
+        "package_id": "Vivaldi.Vivaldi"
+      }
+    ]
+  },
+  {
+    "name": "Opera",
+    "icon": "opera.png",
+    "category": "Web",
+    "description": "Fast and feature-rich web browser",
+    "tags": [
+      "Browser",
+      "Web",
+      "Internet",
+      "Chromium"
+    ],
+    "id": "opera",
+    "installers": [
+      {
+        "package_id": "Opera.Opera"
+      }
+    ]
+  },
+  {
+    "name": "Tor Browser",
+    "icon": "tor.png",
+    "category": "Web",
+    "description": "Privacy-focused anonymous web browser",
+    "tags": [
+      "Browser",
+      "Privacy",
+      "Security",
+      "Tor"
+    ],
+    "id": "tor-browser",
+    "installers": [
+      {
+        "package_id": "TorProject.TorBrowser"
+      }
+    ]
+  },
+  {
+    "name": "LibreWolf",
+    "icon": "librewolf.png",
+    "category": "Web",
+    "description": "Privacy-focused Firefox-based browser",
+    "tags": [
+      "Browser",
+      "Privacy",
+      "Firefox",
+      "OpenSource"
+    ],
+    "id": "librewolf",
+    "installers": [
+      {
+        "package_id": "LibreWolf.LibreWolf"
+      }
+    ]
+  },
+  {
+    "name": "Zen Browser",
+    "icon": "zen.png",
+    "category": "Web",
+    "description": "Modern Firefox-based productivity browser",
+    "tags": [
+      "Browser",
+      "Firefox",
+      "Productivity",
+      "Privacy"
+    ],
+    "id": "zen-browser",
+    "installers": [
+      {
+        "package_id": "Zen-Team.Zen-Browser"
+      }
+    ]
+  },
+  {
+    "name": "Waterfox",
+    "icon": "waterfox.png",
+    "category": "Web",
+    "description": "Independent Firefox-based web browser",
+    "tags": [
+      "Browser",
+      "Privacy",
+      "Firefox",
+      "OpenSource"
+    ],
+    "id": "waterfox",
+    "installers": [
+      {
+        "package_id": "Waterfox.Waterfox"
+      }
+    ]
+  }
 ]
