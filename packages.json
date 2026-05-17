@@ -26,7 +26,7 @@
     { "name": "DBeaver Team", "package_id": "DBeaver.DBeaver.Team" },
     { "name": "DBeaver Ultimate", "package_id": "DBeaver.DBeaver.Ultimate" }
   ] },
-  { "name": "Insomnia", "package_id": "Kong.Insomnia", "icon": "insomnia.png", "category": "Development", "description": "API client and testing tool", "tags": ["API", "REST", "Development"] },
+  { "name": "Insomnia", "package_id": "Insomnia.Insomnia", "icon": "insomnia.png", "category": "Development", "description": "API client and testing tool", "tags": ["API", "REST", "Development"] },
   { "name": "League of Legends", "package_id": "RiotGames.LeagueOfLegends", "icon": "lol.png", "category": "Gaming", "description": "League of Legends game", "tags": ["Gaming"], "variants": [
     { "name": "League of Legends BR", "package_id": "RiotGames.LeagueOfLegends.BR" },
     { "name": "League of Legends EUNE", "package_id": "RiotGames.LeagueOfLegends.EUNE" },
