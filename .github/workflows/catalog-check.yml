@@ -46,6 +46,12 @@ jobs:
             Write-Warning "winget is not available on this runner; package ID checks will be skipped."
           }
 
+      - name: Setup Python
+        if: steps.winget.outputs.available == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Validate catalog
         shell: pwsh
         run: |

@@ -2,7 +2,10 @@
 
 Backend catalog for SetupHub.
 
-This repository contains the list of applications displayed by SetupHub, including their `winget` identifiers, categories, tags, descriptions, and icons. It is intentionally static: the client application can consume it directly through a CDN without requiring a dedicated backend service.
+This repository contains the list of applications displayed by SetupHub,
+including provider installer identifiers, categories, tags, descriptions, and
+icons. It is intentionally static: the client application can consume it
+directly through a CDN without requiring a dedicated backend service.
 
 ## Public URLs
 
@@ -31,46 +34,66 @@ setuphub-catalog/
 
 ## Catalog Format
 
-`packages.json` is an array of applications. Each top-level entry must contain:
+`packages.json` is a single application catalog. Keep one top-level entry per
+application and put every installable provider choice in `installers`. This
+keeps shared metadata, icons, categories, and descriptions in one place even
+when an application can later be installed from Winget, Microsoft Store, Steam,
+or another provider.
 
 | Field | Type | Description |
 | --- | --- | --- |
 | `name` | string | Display name used by SetupHub. |
-| `package_id` | string | Package identifier in `winget`. For entries without `variants`, this identifier must be directly installable. |
+| `id` | string | Stable SetupHub catalog identifier. This is not sent to a package manager. |
 | `icon` | string | File name inside `icons/`. |
 | `category` | string | Functional category for the application. |
 | `description` | string | Short description shown in the UI. |
 | `tags` | string[] | Keywords used for search and filtering. |
-| `variants` | object[] | Optional. Installable variants with their own `package_id`. |
+| `installers` | object[] | Installable choices. Each installer has a `source` and a provider-specific `package_id`. |
 
-When an entry contains `variants`, its top-level `package_id` may be used as a catalog grouping identifier. In that case, CI validates the variant `package_id` values because they represent the installable choices shown to the user.
+Supported installer sources are currently `winget`, `msstore`, and `steam`.
+SetupHub can execute `winget` today; the other sources are reserved for future
+provider integrations and are validated structurally only.
 
 Example:
 
 ```json
 {
+  "id": "vlc",
   "name": "VLC",
-  "package_id": "VideoLAN.VLC",
   "icon": "vlc.png",
   "category": "Media",
   "description": "Open-source multimedia player",
-  "tags": ["Video", "Audio", "Media", "Player"]
+  "tags": ["Video", "Audio", "Media", "Player"],
+  "installers": [
+    {
+      "source": "winget",
+      "package_id": "VideoLAN.VLC"
+    }
+  ]
 }
 ```
 
-Example with variants:
+Example with grouped installers:
 
 ```json
 {
+  "id": "python",
   "name": "Python",
-  "package_id": "Python.Python",
   "icon": "python.png",
   "category": "Development",
   "description": "Powerful programming language",
   "tags": ["Programming", "Scripting", "Development"],
-  "variants": [
-    { "name": "Python 3.12", "package_id": "Python.Python.3.12" },
-    { "name": "Python 3.13", "package_id": "Python.Python.3.13" }
+  "installers": [
+    {
+      "name": "Python 3.12",
+      "source": "winget",
+      "package_id": "Python.Python.3.12"
+    },
+    {
+      "name": "Python 3.13",
+      "source": "winget",
+      "package_id": "Python.Python.3.13"
+    }
   ]
 }
 ```
@@ -111,11 +134,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/Test-Catalog.ps1 -
 - `packages.json` is valid JSON;
 - every entry contains the required fields;
 - every referenced icon exists in `icons/`;
-- there are no duplicate `package_id` values;
-- variants contain both `name` and `package_id`;
-- every installable `package_id` can still be resolved by `winget`.
+- there are no duplicate `source + package_id` installer pairs;
+- grouped installers contain both `name` and `package_id`;
+- every `winget` installer can still be resolved by the local Winget index.
 
-The `winget` validation does not install anything. It uses `winget show` to verify that the package still exists in the configured sources. For entries with variants, the parent entry is not checked with `winget show`; only the variants are checked.
+The `winget` validation does not install anything. It reads the local Winget
+SQLite source index once, then checks every catalog Winget identifier against
+that in-memory list. Non-Winget sources are skipped by this resolver until their
+provider integrations exist.
 
 ## CI
 
