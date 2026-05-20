@@ -220,7 +220,14 @@
       {
         "name": "Counter-Strike 2",
         "source": "steam",
-        "package_id": "730"
+        "package_id": "730",
+        "dependencies": [
+          {
+            "name": "Steam",
+            "source": "winget",
+            "package_id": "Valve.Steam"
+          }
+        ]
       }
     ]
   },

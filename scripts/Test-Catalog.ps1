@@ -77,6 +77,52 @@ function Get-PackageReferences {
     return $references
 }
 
+function Get-DependencyReferences {
+    param(
+        [Parameter(Mandatory = $true)][array]$Catalog
+    )
+
+    $references = New-Object System.Collections.Generic.List[object]
+    foreach ($package in $Catalog) {
+        if (-not ($package.PSObject.Properties.Name -contains "installers") -or $null -eq $package.installers) {
+            continue
+        }
+
+        foreach ($installer in @($package.installers)) {
+            if (-not ($installer.PSObject.Properties.Name -contains "dependencies") -or $null -eq $installer.dependencies) {
+                continue
+            }
+
+            $installerName = if ($installer.PSObject.Properties.Name -contains "name" -and -not [string]::IsNullOrWhiteSpace($installer.name)) {
+                $installer.name
+            } else {
+                $package.name
+            }
+
+            foreach ($dependency in @($installer.dependencies)) {
+                if (-not ($dependency.PSObject.Properties.Name -contains "package_id")) {
+                    continue
+                }
+
+                $source = if ($dependency.PSObject.Properties.Name -contains "source" -and -not [string]::IsNullOrWhiteSpace($dependency.source)) {
+                    ([string]$dependency.source).Trim().ToLowerInvariant()
+                } else {
+                    "winget"
+                }
+
+                $references.Add([pscustomobject]@{
+                    Id = $dependency.package_id
+                    Source = $source
+                    Key = "$source::$($dependency.package_id)"
+                    Context = "dependency '$($dependency.package_id)' of installer '$installerName' in '$($package.name)'"
+                }) | Out-Null
+            }
+        }
+    }
+
+    return $references
+}
+
 function Get-PythonRunner {
     <#
     .SYNOPSIS
@@ -290,15 +336,55 @@ for ($index = 0; $index -lt $catalog.Count; $index++) {
                     Add-Failure "$installerContext has unsupported source '$($installer.source)'. Supported sources: $($supportedSources -join ', ')."
                 }
             }
+
+            if ($installer.PSObject.Properties.Name -contains "dependencies" -and $null -ne $installer.dependencies) {
+                foreach ($dependency in @($installer.dependencies)) {
+                    $dependencyContext = "dependency of $installerContext"
+                    Test-RequiredString -Object $dependency -PropertyName "package_id" -Context $dependencyContext
+
+                    if ($dependency.PSObject.Properties.Name -contains "source") {
+                        Test-RequiredString -Object $dependency -PropertyName "source" -Context $dependencyContext
+
+                        $isUnsupportedDependencySource = (
+                            ($null -ne $dependency.source) -and
+                            ($dependency.source -is [string]) -and
+                            (-not [string]::IsNullOrWhiteSpace($dependency.source)) -and
+                            ($supportedSources -notcontains $dependency.source.Trim().ToLowerInvariant())
+                        )
+
+                        if ($isUnsupportedDependencySource) {
+                            Add-Failure "$dependencyContext has unsupported source '$($dependency.source)'. Supported sources: $($supportedSources -join ', ')."
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 $allPackageReferences = @(Get-PackageReferences -Catalog $catalog)
+$allDependencyReferences = @(Get-DependencyReferences -Catalog $catalog)
 $wingetPackageReferences = @(
     $allPackageReferences |
         Where-Object { $_.Source -eq "winget" }
 )
+$installerKeys = [System.Collections.Generic.HashSet[string]]::new(
+    [System.StringComparer]::OrdinalIgnoreCase
+)
+
+foreach ($reference in $allPackageReferences) {
+    $installerKeys.Add($reference.Key) | Out-Null
+}
+
+foreach ($dependency in $allDependencyReferences) {
+    if ([string]::IsNullOrWhiteSpace($dependency.Id)) {
+        continue
+    }
+
+    if (-not $installerKeys.Contains($dependency.Key)) {
+        Add-Failure "$($dependency.Context) does not reference an installer in the catalog."
+    }
+}
 $duplicateIds = $allPackageReferences |
     Where-Object { -not [string]::IsNullOrWhiteSpace($_.Id) } |
     Group-Object -Property Key |

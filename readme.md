@@ -54,6 +54,11 @@ Supported installer sources are currently `winget`, `msstore`, and `steam`.
 SetupHub can execute `winget` today; the other sources are reserved for future
 provider integrations and are validated structurally only.
 
+Installers can declare `dependencies` when another installer must be present in
+the setup first. Each dependency uses the same provider-scoped identity:
+`source + package_id`. Dependencies must reference an installer that already
+exists somewhere in the catalog.
+
 Example:
 
 ```json
@@ -68,6 +73,33 @@ Example:
     {
       "source": "winget",
       "package_id": "VideoLAN.VLC"
+    }
+  ]
+}
+```
+
+Example with a dependency:
+
+```json
+{
+  "id": "counter-strike-2",
+  "name": "Counter-Strike 2",
+  "icon": "default.png",
+  "category": "Gaming",
+  "description": "Competitive tactical shooter on Steam",
+  "tags": ["Game", "FPS", "Steam"],
+  "installers": [
+    {
+      "name": "Counter-Strike 2",
+      "source": "steam",
+      "package_id": "730",
+      "dependencies": [
+        {
+          "name": "Steam",
+          "source": "winget",
+          "package_id": "Valve.Steam"
+        }
+      ]
     }
   ]
 }
@@ -135,6 +167,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/Test-Catalog.ps1 -
 - every entry contains the required fields;
 - every referenced icon exists in `icons/`;
 - there are no duplicate `source + package_id` installer pairs;
+- every dependency references an installer present in the catalog;
 - grouped installers contain both `name` and `package_id`;
 - every `winget` installer can still be resolved by the local Winget index.
 
